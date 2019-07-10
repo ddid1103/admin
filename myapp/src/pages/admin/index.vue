@@ -73,7 +73,7 @@ export default {
 
 }
 </script>
-<style lang="" scoped>
+<style lang="less" scoped>
     .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
