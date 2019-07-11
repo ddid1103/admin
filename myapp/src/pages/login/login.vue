@@ -1,6 +1,6 @@
 <template>
     <div>
-        电影管理
+        login
     </div>
 </template>
 <script>
@@ -8,6 +8,6 @@ export default {
     
 }
 </script>
-<style lang="">
+<style lang="less" scoped>
     
 </style>

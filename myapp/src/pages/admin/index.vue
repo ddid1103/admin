@@ -3,47 +3,18 @@
         <el-header>这里是xx后台管理系统</el-header>
         <el-container>
             <el-aside width="200px" >
-                
-                <el-menu
-                default-active="1"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose"
+              <el-menu
+                :default-active="activeIndex"
                 background-color="#545c64"
+                class="el-menu-vertical-demo"
                 text-color="#fff"
-                active-text-color="#ffd04b">
-                <!-- <el-submenu index="1">
-                    <template slot="title">
-                    <i class="el-icon-location"></i>
-                    <span>导航一</span>
-                    </template>
-                    <el-menu-item-group>
-                    <template slot="title">分组一</template>
-                    <el-menu-item index="1-1">选项1</el-menu-item>
-                    <el-menu-item index="1-2">选项2</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group title="分组2">
-                    <el-menu-item index="1-3">选项3</el-menu-item>
-                    </el-menu-item-group>
-                    <el-submenu index="1-4">
-                    <template slot="title">选项4</template>
-                    <el-menu-item index="1-4-1">选项1</el-menu-item>
-                    </el-submenu>
-                </el-submenu> -->
-                <el-menu-item index="1">
-                    <i class="el-icon-menu"></i>
-                    <router-link tag="span" to="/admin/user"  slot="title">用户管理</router-link>
-                </el-menu-item>
-                <el-menu-item index="2" >
-                    <i class="el-icon-document"></i>
-                    <router-link tag="span" to="/admin/movie" slot="title">电影管理</router-link>
-                </el-menu-item>
-                <el-menu-item index="3">
-                    <i class="el-icon-setting"></i>
-                    <router-link tag="span" to="/admin/cinema" slot="title">影院管理</router-link>
-                </el-menu-item>
-                </el-menu>
-            
+                active-text-color="#ffd04b"
+                router
+                style="height:100vh;width:230px;float:left;overflow-y:auto;"
+              >
+                <Navleft :navData="navData"></Navleft>
+              </el-menu>
+                 
             </el-aside>
             <el-main>
                 <router-view/>
@@ -53,11 +24,17 @@
 
 </template>
 <script>
+import menuData from "@/components/aside/rootMenu"
+import Navleft from '@/components/aside/Navleft'
 export default {
     name: 'admin',
+    components: {
+      Navleft
+    },
     data () {
         return {
-            
+            activeIndex: 'aa',
+            navData: menuData.menuData
         }
     },
     methods: {
@@ -69,6 +46,11 @@ export default {
         console.log(key, keyPath);
       }
     
+    },
+    mounted(){
+      // let start = window.location.href.lastIndexOf('/');
+      // let path = window.location.href.slice(start+1);
+      // this.activeIndex = path;
     }
 
 }
@@ -82,10 +64,12 @@ export default {
   }
   
   .el-aside {
-    background-color: #D3DCE6;
+    // background-color: #D3DCE6;
+    background-color: rgb(84, 92, 100);
     color: #333;
     text-align: center;
     line-height: 200px;
+    height: calc(100vh);
   }
   
   .el-main {

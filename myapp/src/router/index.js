@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/pages/HelloWorld'
+
 
 Vue.use(Router)
 
@@ -8,8 +8,13 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      redirect: '/admin',
+      // component: 
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import ('@/pages/login/login')
     },
     {
       path: '/admin',
@@ -22,14 +27,14 @@ export default new Router({
           component:() => import(/* webpackChunkName: "group-admin" */ '@/pages/admin/user'),
         },
         {
-          path: 'cinema',
-          name: 'cinema',
-          component:() => import(/* webpackChunkName: "group-admin" */ '@/pages/admin/cinema'),
+          path: 'root',
+          name: 'root',
+          component:() => import(/* webpackChunkName: "group-admin" */ '@/pages/admin/Root'),
         },
         {
-          path: 'movie',
-          name: 'movie',
-          component:() => import(/* webpackChunkName: "group-admin" */ '@/pages/admin/movie'),
+          path: 'home',
+          name: 'home',
+          component:() => import(/* webpackChunkName: "group-admin" */ '@/pages/admin/Home'),
         },
         {
           path: '/admin',
