@@ -4,7 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import ElementUI from 'element-ui'
-import Axios from 'axios'
+import Axios from '@/axios'
+import '@/common/style/index.less'
 
 
 Vue.use(ElementUI)

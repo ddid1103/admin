@@ -60,4 +60,5 @@ export default {
     .el-menu-vertical-demo{
         text-align: left;
     }
+   
 </style>

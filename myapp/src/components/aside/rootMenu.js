@@ -7,7 +7,7 @@ export default {
             name: "aa",
             icon: "el-icon-message",
             alias: "一级菜单",
-            value: "/admin/home"
+            value: "/admin/echart"
           }
         },
         {
@@ -44,7 +44,7 @@ export default {
                 name: "menuManage",
                 icon: "el-icon-edit",
                 alias: "菜单管理",
-                value: "/system/menu"
+                value: "/admin/goods"
               }
             },
             {
@@ -52,8 +52,8 @@ export default {
                 id: 5,
                 name: "groupManage",
                 icon: "el-icon-mobile-phone\r\n",
-                alias: "分组管理",
-                value: "/system/group"
+                alias: "添加商品",
+                value: "/admin/addlist"
               }
             }
           ]

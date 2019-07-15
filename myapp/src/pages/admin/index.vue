@@ -1,6 +1,6 @@
 <template>
-    <el-container>
-        <el-header>这里是xx后台管理系统</el-header>
+    <el-container style="height:100%;">
+        <el-header @><head-top></head-top></el-header>
         <el-container>
             <el-aside width="200px" >
               <el-menu
@@ -10,7 +10,6 @@
                 text-color="#fff"
                 active-text-color="#ffd04b"
                 router
-                style="height:100vh;width:230px;float:left;overflow-y:auto;"
               >
                 <Navleft :navData="navData"></Navleft>
               </el-menu>
@@ -26,10 +25,12 @@
 <script>
 import menuData from "@/components/aside/rootMenu"
 import Navleft from '@/components/aside/Navleft'
+import HeadTop from '@/components/HeadTop'
 export default {
     name: 'admin',
     components: {
-      Navleft
+      Navleft,
+      HeadTop
     },
     data () {
         return {
@@ -56,10 +57,14 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+    .el-menu-vertical-demo{
+      border: none; 
+    }
+ 
     .el-header, .el-footer {
     background-color: #B3C0D1;
     color: #333;
-    padding-left:60px;
+    padding-left:20px;
     line-height: 60px;
   }
   
@@ -69,13 +74,19 @@ export default {
     color: #333;
     text-align: center;
     line-height: 200px;
-    height: calc(100vh);
+    // height: calc(100vh);
+    // height: calc(100vh - 60px);
+    // min-height: 100%;
+   
   }
   
   .el-main {
-    background-color: #E9EEF3;
+    height: 100%;
+    overflow: auto;
+    background-color: #fff;
     color: #333;
     text-align: center;
+    padding: 0;
   }
   
   body > .el-container {
